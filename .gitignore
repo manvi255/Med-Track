@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Test coverage
+coverage/
+
+# Temporary files
+tmp/
+temp/
+
+# IDE settings
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local databases
+*.sqlite
+*.sqlite3
+*.db
+
+# Keep Git placeholder files in storage directories
+!backend/storage/**/.gitkeep
+
+# Ignore uploaded prescription and medical-record files
+backend/storage/prescriptions/*
+!backend/storage/prescriptions/.gitkeep
+
+backend/storage/medical-records/*
+!backend/storage/medical-records/.gitkeepgit check-ignore backend/.env
