@@ -1,7 +1,9 @@
 import axios from "axios";
 
 const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim();
-const configuredApiRoot = (configuredBaseUrl || (import.meta.env.PROD ? "" : "http://localhost:5000")).replace(/\/+$/, "");
+const configuredApiRoot = (import.meta.env.PROD
+  ? ""
+  : configuredBaseUrl || "http://localhost:5000").replace(/\/+$/, "");
 const apiBaseUrl = configuredApiRoot.endsWith("/api/v1")
   ? configuredApiRoot
   : `${configuredApiRoot}/api/v1`;

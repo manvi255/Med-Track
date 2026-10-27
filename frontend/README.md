@@ -29,11 +29,11 @@ npm run preview
 
 ## Vercel deployment
 
-Leave `VITE_API_BASE_URL` unset in the Vercel project (or set it to `/api/v1`).
-Production requests then use the same-origin `/api/v1` path, which Vercel proxies
-to the backend. This avoids depending on cross-site browser cookies. Vercel's
-`vercel.json` also serves the React app for direct navigation and page reloads on
-client-side routes.
+Production always uses the same-origin `/api/v1` path, which Vercel proxies to
+the backend; `VITE_API_BASE_URL` is used only during local development. This
+avoids depending on cross-site browser cookies, even if a stale Vercel
+environment value is present. Vercel's `vercel.json` also serves the React app
+for direct navigation and page reloads on client-side routes.
 
 On the backend service, set `CORS_ORIGIN` to the exact frontend origin
 `https://med-track-tawny.vercel.app` (no trailing slash). Include additional
