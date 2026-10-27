@@ -14,7 +14,7 @@ const envSchema = z.object({
       (secret) => !/^(replace-with|your[-_ ]|change[-_ ]?me|placeholder)/i.test(secret),
       "JWT_SECRET must be a generated secret, not a placeholder"
     ),
-  CORS_ORIGIN: z.string().default("http://localhost:5173"),
+  CORS_ORIGIN: z.string().default("http://localhost:5173,https://med-track-tawny.vercel.app"),
   USER_TIMEZONE: z.string().default("UTC").refine((timezone) => {
     try {
       new Intl.DateTimeFormat("en-US", { timeZone: timezone });

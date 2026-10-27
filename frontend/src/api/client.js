@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim();
-const apiBaseUrl = (configuredBaseUrl || "http://localhost:5000/api/v1").replace(/\/+$/, "");
+const configuredApiRoot = (configuredBaseUrl || "http://localhost:5000").replace(/\/+$/, "");
+const apiBaseUrl = configuredApiRoot.endsWith("/api/v1")
+  ? configuredApiRoot
+  : `${configuredApiRoot}/api/v1`;
 
 export const apiClient = axios.create({
   baseURL: apiBaseUrl,

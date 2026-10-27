@@ -27,6 +27,17 @@ npm run build
 npm run preview
 ```
 
+## Vercel deployment
+
+Set `VITE_API_BASE_URL` in the Vercel project to the backend origin, for example
+`https://your-backend.onrender.com`. The API client appends `/api/v1` when it is
+missing. Vercel's `vercel.json` rewrite serves the React app for direct navigation
+and page reloads on client-side routes.
+
+On the backend service, set `CORS_ORIGIN` to the exact frontend origin
+`https://med-track-tawny.vercel.app` (no trailing slash). Include additional
+origins as comma-separated values only when needed.
+
 ## Integrated features
 
 The interface uses the backend's cookie-based session; no token is written to browser storage. Registration and login call `POST /auth/register` and `POST /auth/login`, refresh restoration calls `GET /auth/me`, and sign-out calls `POST /auth/logout`. Axios sends credentials for API requests.
