@@ -7,7 +7,7 @@ export const AUTH_COOKIE_NAME = "meditrack_auth";
 export const AUTH_COOKIE_OPTIONS = Object.freeze({
   httpOnly: true,
   secure: env.NODE_ENV === "production",
-  sameSite: "lax",
+  sameSite: env.NODE_ENV === "production" ? "none" : "lax",
   path: "/api/v1"
 });
 export const AUTH_COOKIE_MAX_AGE = 60 * 60 * 1000;
